@@ -14,8 +14,8 @@ function Header({token,onLogout}) {
                   alt="Logo" />
                 </div>
                  <div className="mx-auto container flex gap-10 ml-10 ">
-                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/diagnostics")}>Diagnostic Center</button></div>
-                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg" onClick={()=>navigate("/clinics")}>Clinic</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/diagnostics")}>Book Tests</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg" onClick={()=>navigate("/clinics")}>Find Doctors</button></div>
                     <div><button className="hover:text-black hover:underline font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
 
                  </div>

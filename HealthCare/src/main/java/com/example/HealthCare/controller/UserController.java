@@ -18,9 +18,11 @@ import com.example.HealthCare.dto.BookingDetails;
 import com.example.HealthCare.dto.BookingRequest;
 import com.example.HealthCare.entity.Booking;
 import com.example.HealthCare.entity.Center;
+import com.example.HealthCare.entity.Clinic;
 import com.example.HealthCare.entity.User;
 import com.example.HealthCare.service.BookingService;
 import com.example.HealthCare.service.CenterService;
+import com.example.HealthCare.service.ClinicService;
 import com.example.HealthCare.service.UserService;
 
 @RestController
@@ -37,6 +39,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ClinicService clinicService;  
 	
 	@GetMapping("/getAllCenter")
 	public ResponseEntity<List<Center>> getAll(){
@@ -72,6 +77,11 @@ public class UserController {
 	public ResponseEntity<User> getUser(@PathVariable Long id) {
 		return new ResponseEntity<>(userService.getUserById(id),HttpStatus.OK);
 		
+	}
+	
+	@GetMapping("/getAllDoctors")
+	public ResponseEntity<List<Clinic>> getAllDoctors(){
+		return new ResponseEntity<>(clinicService.getAll(),HttpStatus.OK);
 	}
 	
 }

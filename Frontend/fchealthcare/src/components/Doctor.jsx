@@ -5,7 +5,7 @@ import React from "react";
 import Footer from "./Footer"
 import { Navigate, useNavigate } from "react-router";
 
-function Clinic({token,onLogout}){
+function Doctor(){
     const [doctor,setDoctor]=useState([]);
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function Clinic({token,onLogout}){
 
     const fetchDoctor=async()=>{
         try{
-            const res=await apiRequest("/diagnostic/user/getAllDoctors","GET",null,token);
+            const res=await apiRequest("/diagnostic/user/getAllCenter","GET",null,token);
             setDoctor(res);
             console.log(res);
         }
@@ -38,7 +38,7 @@ function Clinic({token,onLogout}){
                         <div className="flex  h-full ">
 
                         <div className="bg-white ">
-                            <img src={s.imageUrl}
+                            <img src="https://picsum.dev/image/15/view"
                              alt="preview" 
                              className="h-75 ml-5 mt-3 w-75 mr-5 p-2 rounded-full object-cover"
                              />
@@ -47,18 +47,10 @@ function Clinic({token,onLogout}){
                         <div className="flex flex-col ">
                             <div className="flex flex-col mt-10 p-5">
                                 <span className="text-blue-800   font-semibold font-serif text-4xl">{s.name}</span>
-                                <div className="flex gap-2">
-                                    <span className="font-semibold">Experience :</span>
-                                    <span className="text-purple-700 font-semibold">{s.experience}</span>
-                                    <span className="font-semibold">, </span>
-                                    <span className="font-semibold">Specialist :</span>
-                                    <span className="text-red-400">{s.specialist}</span>
-                                </div>
-                                <span className="font-mono mt-2 text-xl font-sans">{s.location}</span>
+                                <span className="font-mono mt-2 text-xl">{s.location}</span>
                             </div>
                             <div className="flex flex-col ml-5 ">
-                                <div className="flex gap-1">
-                                    <span className="font-semibold">Consultant Fees : </span>
+                                <div className="">
                                     <span className="text-green-500">₹{s.fees}</span>
                                 </div> 
                             </div>
@@ -90,4 +82,4 @@ function Clinic({token,onLogout}){
     )
 }
 
-export default Clinic
+export default Doctor
