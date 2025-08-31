@@ -2,7 +2,7 @@ import { useNavigate } from "react-router"
 
 
 
-function Header({token,onLogout}) {
+function Header({token,onLogout,role}) {
     const navigate=useNavigate();
     return (
         <div className="flex flex-col ">
@@ -14,21 +14,41 @@ function Header({token,onLogout}) {
                   alt="Logo" />
                 </div>
                  <div className="mx-auto container flex gap-10 ml-10 ">
+                    {role==="USER" ?(
+                        <div className="mx-auto container flex gap-10 ml-10">
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/home")}>Home</button></div>
                     <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/diagnostics")}>Book Tests</button></div>
                     <div ><button className="hover:text-black  hover:underline font-semibold text-lg" onClick={()=>navigate("/clinics")}>Find Doctors</button></div>
                     <div><button className="hover:text-black hover:underline font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
+                        </div>
+                    ):role==="admin"?(
+                     <div className="mx-auto container flex gap-10 ml-10">
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/home")}>Home</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/addTest")}>Add Test</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg" onClick={()=>navigate("/addDoctor")}>Add Doctors</button></div>
+                    <div><button className="hover:text-black hover:underline font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
+                        </div>
+                    ):(
+                     <div className="mx-auto container flex gap-10 ml-10">
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/home")}>Home</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg " onClick={()=>navigate("/diagnostics")}>Book Tests</button></div>
+                    <div ><button className="hover:text-black  hover:underline font-semibold text-lg" onClick={()=>navigate("/clinics")}>Find Doctors</button></div>
+                    <div><button className="hover:text-black hover:underline font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
+                        </div>
+
+                    )}
 
                  </div>
                  {token && (
                     <div className= "flex-1 text-right  mr-6  ">
                     <button
-                    className="border border-black w-28 hover:text-blue-400 h-8 rounded text-semibold " onClick={onLogout} >Logout</button>
+                    className="border border-black w-28  bg-blue-100 text-white h-8 rounded text-semibold" onClick={onLogout} >Logout</button>
                 </div>
                 )}
                 {!token && (
                     <div className= "flex-1 text-right  mr-6  ">
                     <button
-                    className="border border-black w-28 hover:text-blue-400 h-8 rounded text-semibold " onClick={()=>navigate('/login')}>Login/Signup</button>
+                    className= "duration-150 ease-in w-30 bg-blue-400 text-sm  hover:text-lg text-white  h-8 rounded text-semibold" onClick={()=>navigate('/login')}>Login/Signup</button>
                 </div>
                 )}
 

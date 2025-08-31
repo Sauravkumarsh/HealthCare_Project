@@ -2,14 +2,15 @@ import Header from "./Header"
 import rapidoBg from "../assets/rapidobg.png";
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
+import { apiRequest } from "../api";
+
 
 
 
 function Booking(token,onLogout) {
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
-    const [center,setCenter]=useState([]);
+ 
 
 
     useEffect(()=>{
@@ -26,6 +27,20 @@ function Booking(token,onLogout) {
             console.log("error in  fetch messaage not");
         }
     };
+
+    
+    const handleBooking=async(e)=>{
+        e.preventDefault();  
+        try{
+
+            await apiRequest(`/diagnostic/user/booking/${id}`,"POST",content,token);
+        }catch(err){
+            console.log(err);
+        }
+    };
+
+
+
     return (
         <div>
             <Header token={token} onLogout={onLogout}/>
@@ -103,12 +118,19 @@ function Booking(token,onLogout) {
                 <label className="block font-semibold mb-1">Available Tests</label>
                 <div className=" h-15 border-orange-50 rounded-lg shadow bg-orange-50">
                     <select name="Tests Name" id="" className="w-full h-full p-3">
-                        <option value="">car</option>
+                        <option value="" >car</option>
                     </select>
                     
                 </div>
             </div>
-          
+
+            <div>
+                <label for="myfile" className="block font-semibold mb-1">Upload Doctor Prescription</label>
+                <div className=" h-15  rounded-lg shadow bg-yellow-50">  
+                  hello            
+                </div>
+            </div>
+
           {/* Payment Options as Cards */}
           <div>
             <label className="block font-semibold mb-1">Payment Mode</label>

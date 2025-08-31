@@ -2,14 +2,14 @@ import { useNavigate } from "react-router"
 import Header from "./Header";
 import Footer from "./Footer";
 
-function Home({token,onLogout}){
+function Home({token,onLogout,role}){
     const navigate=useNavigate();
     return(
         <div className="flex flex-col">
-            <Header token={token} onLogout={onLogout}/>
+            <Header token={token} onLogout={onLogout} role={role}/>
             {/* Home Section */}
             <main>
-                <div className="flex flex-col mt-2 gap-10">
+                <div className="flex flex-col mt-2 gap-10">                               
                     <div className="flex ">
                         <div className="text-left md:text-center p-4">
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit odio doloribus sunt ut omnis nulla ab odit, ipsum aliquid? Obcaecati dolor fugiat voluptate recusandae facilis temporibus quas aut laboriosam optio.</p>

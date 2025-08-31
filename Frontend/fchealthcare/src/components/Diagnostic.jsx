@@ -25,6 +25,7 @@ function Diagnostic({token,onLogout}){
             console.log("error in  fetch messaage not");
         }
     };
+
     
 
     return(
@@ -60,7 +61,7 @@ function Diagnostic({token,onLogout}){
     
                             </div>
                             <div className="absolute right-0 bottom-0 mb-15 mr-4 p-2 ml-5 mt-10 justify-end ">
-                               <button className=" bg-green-400 transition   ease-in-out hover:-translate-y-1 rounded hover:bg-green-500 text-white w-50 h-11 px-4 py-2 " onClick={() =>navigate('/bookings') }>
+                               <button className=" bg-green-400 transition   ease-in-out hover:-translate-y-1 rounded hover:bg-green-500 text-white w-50 h-11 px-4 py-2 " onClick={() =>navigate("/bookings") }>
                                 Book Now
                                 </button>
                             </div>

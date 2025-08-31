@@ -15,13 +15,25 @@ public class Booking {
 	private String centerName;
 	private String imageUrl;
 	private String Slot;
+	private String paymentMode;
 
 	
-	public Booking(String testName, String centerName,String imageUrl) {
+	public Booking(String testName, String centerName,String imageUrl, String paymentMode) {
 		super();
 		this.testName = testName;
 		this.centerName = centerName;
 		this.imageUrl=imageUrl;
+		this.paymentMode=paymentMode;
+	}
+
+
+	public String getPaymentMode() {
+		return paymentMode;
+	}
+
+
+	public void setPaymentMode(String paymentMode) {
+		this.paymentMode = paymentMode;
 	}
 
 

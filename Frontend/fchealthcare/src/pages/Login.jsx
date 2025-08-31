@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { apiRequest } from "../api";
 
 
-function Login({setToken}) {
+function Login({setToken,setRole}) {
     const navigate=useNavigate();
     const [email,setEmail]=useState("");
     const [password ,setPassword]=useState();
@@ -16,6 +16,8 @@ function Login({setToken}) {
             const res=await apiRequest("/auth/login","POST",{email,password});
             localStorage.setItem("token",res.token);
             setToken(res.token);
+            localStorage.setItem("role",res.role);
+            setRole(res.role);
             navigate("/home");
         }
         catch(err){
