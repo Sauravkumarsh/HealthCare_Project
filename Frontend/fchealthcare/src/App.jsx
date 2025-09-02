@@ -9,6 +9,7 @@ import Diagnostic from "./components/Diagnostic";
 import Booking from "./components/Booking";
 import AddTest from "./components/AddTest";
 import AddDoctor from "./components/AddDoctor";
+import Profile from "./components/Profile";
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
       <Route path="/bookings" element={token ? <Booking token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
       <Route path="/addTest" element={token ? <AddTest token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
       <Route path="/addDoctor" element={token ? <AddDoctor token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+      <Route path="/profile" element={token ? <Profile token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
 
 
 

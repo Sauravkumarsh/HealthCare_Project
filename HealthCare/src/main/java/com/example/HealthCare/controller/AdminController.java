@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.HealthCare.dto.BookingDetails;
 import com.example.HealthCare.entity.Center;
+import com.example.HealthCare.entity.Clinic;
 import com.example.HealthCare.entity.User;
 import com.example.HealthCare.service.BookingService;
 import com.example.HealthCare.service.CenterService;
+import com.example.HealthCare.service.ClinicService;
 import com.example.HealthCare.service.UserService;
 
 @RestController
@@ -34,6 +36,9 @@ public class AdminController {
 	
 	@Autowired
 	private BookingService bookingService;
+	
+	@Autowired
+	ClinicService clinicService;
 	
 	@PostMapping("/addCenter")
 	public ResponseEntity<Center> addCenter(@RequestBody Center center) {
@@ -74,4 +79,8 @@ public class AdminController {
 
 	}
 
+	@PostMapping("/addClinic")
+	public ResponseEntity<Clinic> addClinic(Clinic clinic){
+		return new ResponseEntity<>(clinicService.addClinic(clinic),HttpStatus.OK);
+	}
 }
