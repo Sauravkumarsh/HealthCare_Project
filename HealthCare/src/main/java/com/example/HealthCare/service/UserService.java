@@ -43,6 +43,12 @@ public class UserService {
     	return userRepo.findById(id).get();
     }
     
-    
+    public User updateUser(Long id, User user) {
+    	User fetchUser=userRepo.getById(id);
+    	user.setPassword(fetchUser.getPassword());
+    	user.setRole(fetchUser.getRole());
+    	user.setEmail(fetchUser.getEmail());
+    	return userRepo.save(user);
+    }
 
 }

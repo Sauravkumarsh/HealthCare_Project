@@ -54,7 +54,7 @@ function Header({token,onLogout,role}) {
                     <button onClick={()=>setShowProfile(true)}>
                         <img 
                         src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" 
-                        className="w-35 h-12 rounded-full border object-cover mx-auto md:mx-0  md:mb-0" 
+                        className="w-26 h-8 rounded-full border object-cover mx-auto md:mx-0  md:mb-0" 
                         alt="profile" />
                     </button>
                  </div>
@@ -68,7 +68,7 @@ function Header({token,onLogout,role}) {
                     <div className="flex flex-col bg-white h-49 w-70 mx-34 rounded-lg">
                         <div className="p-5 border rounded font-semibold hover:bg-gray-200">
                             <button onClick={()=> navigate("/profile")}>
-                                Edit Profile
+                                Profile
                             </button>
                         </div>
                         <div className="p-5 border rounded font-semibold hover:bg-gray-200">
