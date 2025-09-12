@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from "react-router";
 function Clinic({token,onLogout}){
     const [doctor,setDoctor]=useState([]);
     const navigate = useNavigate();
+    const [doctorLength,setDoctorLength] = useState("");
 
 
     useEffect(()=>{
@@ -18,6 +19,8 @@ function Clinic({token,onLogout}){
         try{
             const res=await apiRequest("/diagnostic/user/getAllDoctors","GET",null,token);
             setDoctor(res);
+            console.log(res.length);
+            setDoctorLength(res.length);
             console.log(res);
         }
         catch(err){
@@ -82,6 +85,25 @@ function Clinic({token,onLogout}){
               ))}
 
             </main>
+
+            <section>
+                <div className="flex justify-center h-25 ">
+                    <div className="w-10 h-full  ">
+                    <button className="border  w-10 h-10 bg-blue-500 hover:bg-blue-700 ">
+                        {"<"}
+                    </button>
+                   </div>
+
+
+
+
+                    <div className="w-10 h-full  ">
+                    <button className="border w-10 h-10 bg-blue-500 hover:bg-blue-700">
+                        {">"}
+                    </button>
+                   </div>
+                </div>
+            </section>
             <Footer/>
         </div>
 

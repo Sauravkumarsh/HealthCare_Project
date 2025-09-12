@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { apiRequest } from "../api";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 
 function Login({setToken,setRole}) {
@@ -26,7 +28,9 @@ function Login({setToken,setRole}) {
     }
 
     return(
-        <div  className="flex bg-blue-50 w-full h-185 items-center  justify-center">
+        <div>
+           <Header /> 
+          <div  className="flex bg-blue-50 w-full h-185 items-center  justify-center">
             <div className=" flex w-200 h-150 items-center bg-gray-100 ">
                 <div className=" w-1/2 h-full">
                 <img 
@@ -74,6 +78,8 @@ function Login({setToken,setRole}) {
                 </div>
                 </div>
             </div>
+        </div>
+        <Footer/>
         </div>
     )
 }

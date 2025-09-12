@@ -80,7 +80,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/addClinic")
-	public ResponseEntity<Clinic> addClinic(Clinic clinic){
+	public ResponseEntity<Clinic> addClinic (@RequestBody Clinic clinic){
 		return new ResponseEntity<>(clinicService.addClinic(clinic),HttpStatus.OK);
 	}
 }

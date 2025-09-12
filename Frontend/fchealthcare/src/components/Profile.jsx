@@ -46,14 +46,14 @@ function Profile({token,onLogout,role}) {
         <div>
             <Header token={token} onLogout={onLogout} role={role}/>
             <div
-             className="flex  flex-col w-full h-full justify-center items-center  "
+             className="flex  flex-col w-full h-full justify-center items-center mt-15  "
               style={{
                 backgroundImage: `url(${rapidoBg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",}} >
 
-                <div className="w-270 bg-purple-200 ">
+                <div className="w-270 bg-purple-200 rounded-lg border border-black ">
                     <div className="flex flex-col ">
                         <div className="h-20 ml-5 mt-10 text-2xl font-bold">My Profile </div>
                         <div className="flex w-full">

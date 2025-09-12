@@ -12,9 +12,8 @@ function AddDoctor({token,onLogout,role}){
     const [experience,setExperience] = useState("");
     const [specialist,setSpecialist] = useState("");
     const [fees,setFees] = useState("");
-    const [address,setAddress] = useState("");
-    const [imgUrl,SetImgUrl] = useState("");
-    const [preview, setPreview] = useState(null);
+    const [location,setLocation] = useState("");
+    const [imageUrl,SetImageUrl] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const fileInputRef = useRef(null);
@@ -22,8 +21,7 @@ function AddDoctor({token,onLogout,role}){
 
     const handleImageChange = (file) => {
       if (file && file.type.startsWith("image/")) {
-      SetImgUrl(file);
-      setPreview(URL.createObjectURL(file));
+      SetImageUrl(file);
       setError("");
       } else {
       setError("Please select a valid image file");
@@ -38,13 +36,13 @@ function AddDoctor({token,onLogout,role}){
     const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    if (!imgUrl) {
+    if (!imageUrl) {
       setError("Please select an image");
       return;
     }
     setLoading(true);
     try {
-        await apiRequest("/diagnostic/admin/addClinic", "POST", { name,experience,specialist,fees,address,imgUrl }, token);
+        await apiRequest("/diagnostic/admin/addClinic", "POST", { name,location,specialist,experience,imageUrl,fees }, token);
         navigate("/home");
     } catch (err) {
       setError("Failed to create post");
@@ -110,7 +108,7 @@ function AddDoctor({token,onLogout,role}){
                     <div className="">
                         <input 
                           className= "h-10 text-center w-full" 
-                          type="number" 
+                          type="text" 
                           value={experience}
                            onChange={(e) => setExperience(e.target.value)}
                           required
@@ -147,8 +145,8 @@ function AddDoctor({token,onLogout,role}){
                         <input 
                          className= "h-10 text-center w-full " 
                          type="text" 
-                         value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                         value={location}
+                          onChange={(e) => setLocation(e.target.value)}
                           required
                          placeholder="Enter Address" />
                     </div>

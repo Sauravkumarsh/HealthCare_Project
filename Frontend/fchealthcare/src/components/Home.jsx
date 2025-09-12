@@ -2,34 +2,44 @@ import { useNavigate } from "react-router"
 import Header from "./Header";
 import Footer from "./Footer";
 
+import bgImg4 from "../assets/bgimg4.jpeg";
+
+
+
+
+
+
+
 function Home({token,onLogout,role}){
     const navigate=useNavigate();
     return(
         <div className="flex flex-col">
             <Header token={token} onLogout={onLogout} role={role}/>
             {/* Home Section */}
-            <main>
+            <main className="ml-10 mr-10 mt-40">
 
-                        <div className="flex p-5  justify-center h-20 shadow bg-purple-50">
-                            <div className="h-full w-35 bg-white">
-                                <select name="Location" id="" className="border h-full w-full  ">
-                                    <option className="" value="Patna">Patna</option>
-                                </select>
+                        <div  className="p-10 h-100 text-wrap w-full "
+                         style={{
+                         backgroundImage: `url(${bgImg4})`,
+                         backgroundSize: "cover",
+                         backgroundPosition: "center",
+                         backgroundRepeat: "no-repeat",}}>
+                            <div className="flex flex-col  w-180 gap-10 ">
+                                <div className=""><p className=" text-5xl font-serif text-left font-italic">We hope they encourage you to see the silver lining as you or your loved one heals.</p></div>
+                                <div className="w-2/3 mt-4 h-26 text-left "><p className="text-white h-26 text-3xl text-left  overflow-hidden text-clip font-mono"> “I will love the light for it shows me the way, yet I will endure the darkness because it shows me the stars.” —Og Mandino “Nothing is impossible. The word itself says, ‘I’m Possible!’” —Audrey Hepburn</p></div>
                             </div>
-                            <div className="h-full w-120 bg-white">
-                                <input type="text" className="border w-full h-full text-center" placeholder="Search doctors,clinics,hospitals,etc" />
-                            </div>
-                            <div className="h-full w-20 bg-white">
-                                <button className="bg-blue-500 w-full h-full">search</button>
-                            </div>
-                        </div>          
+                        </div>         
+
+                      <div className=" flex bg-gradient-to-r  from-blue-50 to-blue-200 font-serif h-16 justify-center items-center w-full text-center mt-5">
+                         <div className="text-4xl font-serif">OUR SERVICES</div>
+                      </div>
 
                     
 
                 <div className="flex flex-col mt-2 gap-10 p-5">   
                     <div className="flex gap-8 justify-center">
 
-                        <div className="flex flex-col w-60 h-auto bg-purple-100 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                        <div className="flex flex-col w-60 h-auto bg-blue-50 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                             <div className="p-2 ">
                                 <img
                                  src="https://i.pinimg.com/736x/2f/63/5c/2f635cf35219c2607cd7a084da8999a7.jpg"
@@ -48,7 +58,7 @@ function Home({token,onLogout,role}){
                             </div>
                         </div>
 
-                          <div className="flex flex-col w-60 h-auto bg-purple-100 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                          <div className="flex flex-col w-60 h-auto bg-blue-50 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                             <div className="p-2 ">
                                 <img
                                  src="https://arthdiagnostics.com/wp-content/uploads/2024/02/Arth-Diagnostics-Best-Diagnostics-Centre-in-Udaipur.jpg"
@@ -67,7 +77,7 @@ function Home({token,onLogout,role}){
                             </div>
                         </div>
 
-                        <div className="flex flex-col w-60 h-auto bg-purple-100 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                        <div className="flex flex-col w-60 h-auto bg-blue-50 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                             <div className="p-2 ">
                                 <img
                                  src="https://c8.alamy.com/comp/2C7A6FP/book-your-medical-appointment-online-using-a-mobile-app-doctor-sitting-at-desk-in-the-background-and-wearing-a-face-mask-2C7A6FP.jpg"
@@ -86,7 +96,7 @@ function Home({token,onLogout,role}){
                             </div>
                         </div>
 
-                        <div className="flex flex-col w-60 h-auto bg-purple-100 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+                        <div className="flex flex-col w-60 h-auto bg-blue-50 shadow rounded-lg transition delay-150 duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                             <div className="p-2 ">
                                 <img
                                  src="https://cdn2.vectorstock.com/i/1000x1000/85/51/doctor-video-call-consultation-vector-27278551.jpg"
@@ -104,31 +114,207 @@ function Home({token,onLogout,role}){
                                 </div>
                             </div>
                         </div>
-
-
                     </div>  
 
-                    <div className="flex ">
-                        <div className="text-left md:text-center p-4 ">
-                            <p className="mt-32 font-serif">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit odio doloribus sunt ut omnis nulla ab odit, ipsum aliquid? Obcaecati dolor fugiat voluptate recusandae facilis temporibus quas aut laboriosam optio.</p>
+                   <div className="p-4 ">
+                    <h1 className="text-4xl font-bold ">Available Medicine</h1>
+                    <div className="flex gap-10 p-8">
+
+                      <div className="flex flex-col  h-40 w-40    rounded-lg ">
+                        <div className= "h-30 w-full  ">
+                            <img 
+                             src="https://medias.pourlascience.fr/api/v1/images/view/618bdaaad286c24de4078466/wide_1000-webp/image.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
                         </div>
-                        <div className="shadow">
-                            <img src="https://www.remedieslabs.com/blog/wp-content/uploads/2022/06/10-things-to-know-before-selecting-a-diagnostic-center.jpg" 
-                            className="rounded-lg h-100 w-300 p-4 shadow "
-                            alt="img" />
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400  ">Buy 200</button>
+                        </div>
+                     </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full   ">
+                            <img 
+                             src="https://www.janaxapharmaceuticals.com/wp-content/uploads/2024/12/Jancedol-40.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex ">
-                        <div className="rounded-lg shadow">
-                            <img src="https://assets.thehansindia.com/h-upload/2021/05/14/1076291-test.webp" 
-                            className="rounded-lg h-100 w-300 p-4 shadow"
-                            alt="img" />
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://www.fcremedies.com/wp-content/uploads/2022/01/MAPRED-40-INJECTION.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
                         </div>
-                            <div className="text-right md:text-center p-4 ">
-                                <p className="mt-32 font-serif ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum suscipit neque molestiae natus quae. Eaque suscipit quas sed officia? Eius iste labore dolores molestiae cupiditate voluptas ipsum excepturi eaque quaerat?</p>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full">
+                            <img 
+                             src="https://assets.newatlas.com/dims4/default/e369cd3/2147483647/strip/true/crop/3840x2160+0+0/resize/2880x1620!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa3%2F90%2F3324f72b418ca03037e103ed0214%2Fdepositphotos-817198500-xl.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://www.mehrith.com/wp-content/uploads/2023/08/REAL-SAP.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://assets.medpagetoday.net/media/images/96xxx/96431_m.jpg"  
+                             className="h-full w-full "
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
+                        </div>
+                    </div>
+
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7.8OIvTeYwM/v1/1200x800.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
+                        </div>
+                    </div>
+
+                    <div className="flex  justify-center items-center text-xl font-bold w-20">
+                        <button>See All</button>
+                    </div>
+
+
+
+
+                    </div>
+                   </div>
+
+
+                    <div className="p-4 ">
+                    <h1 className="text-4xl font-bold ">Available Tests</h1>
+                    <div className="flex gap-10 p-8">
+
+                      <div className="flex flex-col  h-40 w-40    rounded-lg ">
+                        <div className= "h-30 w-full  ">
+                            <img 
+                             src="https://www.shutterstock.com/image-photo/radiologist-consults-patient-before-undergoing-260nw-2480666789.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400  ">Book MRI</button>
+                        </div>
+                     </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full   ">
+                            <img 
+                             src="https://media.istockphoto.com/id/1415662882/photo/male-patient-lying-on-bed-while-female-nurse-adjusting-modern-x-ray-machine-for-scanning-his.jpg?s=612x612&w=0&k=20&c=YPy1QHRU0nkpSmKj2gOQw6maPHp7L177qgKI7G1Fstw="  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book X-Ray</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://www.scripps.org/sparkle-assets/images/blood_test_samples_1200x750-59cd6b99366c6e716576ccd68351ed39.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book Blood Test</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full">
+                            <img 
+                            src="https://media.istockphoto.com/id/988475264/photo/sample-blood-collection-tube-with-hiv-test-label.jpg?s=612x612&w=0&k=20&c=GcfP8jy6CqmqGW8mTGzvy8kj6NfW4y8Gi1RP-slBASo="
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book HIV Test</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://bookmerilab.com/blog/wp-content/uploads/2017/11/Ultrasound-NT-Scan.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book Ultrasound</button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://da4e1j5r7gw87.cloudfront.net/wp-content/uploads/sites/4783/2021/11/Side-perspective-of-an-eye-doctor-using-a-microscope-and-slit-lamp-to-view-a-patients-eye.png"  
+                             className="h-full w-full "
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book Eye Test</button>
+                        </div>
+                    </div>
+
+
+                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
+                        <div className= "h-30 w-full ">
+                            <img 
+                             src="https://media.post.rvohealth.io/wp-content/uploads/2023/10/doctor-patient-endoscopy-medical-procedure-732x549-thumbnail-732x549.jpg"  
+                             className="h-full w-full"
+                             alt="img" />
+                        </div>
+                        <div className="w-full h-10 ">
+                            <button className="w-full h-full bg-orange-400 ">Book Endoscopy</button>
+                        </div>
+                    </div>
+
+                    <div className="flex  justify-center items-center text-xl font-bold w-20">
+                        <button>See All</button>
+                    </div>
+
+
+
+
+                    </div>
+                   </div>
+
 
                     <div className="flex flex-col gap-4 p-4 ">
                         <div >
@@ -229,8 +415,13 @@ function Home({token,onLogout,role}){
                     </div>
 
                 </div>
+            
+
                 
-                <div className=" flex bg-gradient-to-r  from-blue-500 to-purple-500 text-white h-100 w-full p-5 justify-center gap-20">
+            </main>
+
+            <section>
+                 <div className=" flex bg-gradient-to-t  from-blue-300 to-blue-500 text-white h-100 w-full p-5 justify-center gap-20">
                     <div className="flex flex-col gap-1  ">
                         <div className="font-bold text-2xl mb-2"> Practo</div>
                         <div>About Us</div>
@@ -264,9 +455,7 @@ function Home({token,onLogout,role}){
                         <div>GitHub</div>
                     </div> 
                  </div>
-
-                
-            </main>
+            </section>
 
             <Footer/>
 

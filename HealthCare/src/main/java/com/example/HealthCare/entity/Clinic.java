@@ -22,14 +22,12 @@ public class Clinic {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Clinic(Long id, String name, String location, String specialist, String experience, String imageUrl,int rating, double fees) {
+	public Clinic(String name, String location, String specialist, String experience, String imageUrl, double fees) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.location = location;
 		this.specialist = specialist;
 		this.experience = experience;
-		this.rating = rating;
 		this.fees = fees;
 		this.imageUrl=imageUrl;
 	}

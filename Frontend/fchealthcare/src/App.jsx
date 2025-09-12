@@ -10,6 +10,7 @@ import Booking from "./components/Booking";
 import AddTest from "./components/AddTest";
 import AddDoctor from "./components/AddDoctor";
 import Profile from "./components/Profile";
+import Medicine from "./components/Medicine";
 
 function App() {
 
@@ -42,10 +43,12 @@ function App() {
       <Route path="/about" element={token ? <About token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
       <Route path="/clinics" element={token ? <Clinic token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
       <Route path="/diagnostics" element={token ? <Diagnostic token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
-      <Route path="/bookings" element={token ? <Booking token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
-      <Route path="/addTest" element={token ? <AddTest token={token} onLogout={handleLogout}/> : <Navigate to="/" />}/>
+      <Route path="/bookings" element={token ? <Booking token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+      <Route path="/addTest" element={token ? <AddTest token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/addDoctor" element={token ? <AddDoctor token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/profile" element={token ? <Profile token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+      <Route path="/medicines" element={token ? <Medicine token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+
 
 
 

@@ -7,9 +7,10 @@ import { apiRequest } from "../api";
 
 
 
-function Booking(token,onLogout) {
+function Booking({token,onLogout,role}) {
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [error, setError] = useState("");
+    const [success,setSuccess] = useState("");
  
 
 
@@ -43,7 +44,7 @@ function Booking(token,onLogout) {
 
     return (
         <div>
-            <Header token={token} onLogout={onLogout}/>
+            <Header token={token} onLogout={onLogout} role={role}/>
         <section
       className="relative flex flex-col items-center justify-center min-h-[70vh] w-full"
       style={{
@@ -114,22 +115,15 @@ function Booking(token,onLogout) {
         </div>
         {/* Frequent/Recent Locations */}
         <form className="space-y-4 w-full">
-            <div>
-                <label className="block font-semibold mb-1">Available Tests</label>
-                <div className=" h-15 border-orange-50 rounded-lg shadow bg-orange-50">
-                    <select name="Tests Name" id="" className="w-full h-full p-3">
-                        <option value="" >car</option>
-                    </select>
-                    
-                </div>
-            </div>
 
-            <div>
-                <label for="myfile" className="block font-semibold mb-1">Upload Doctor Prescription</label>
-                <div className=" h-15  rounded-lg shadow bg-yellow-50">  
-                  hello            
-                </div>
-            </div>
+          <div>
+            <label className="font-semibold text-lg ">Upload Doctor's Prescription</label><br />
+             <div className="bg-red-50 border shadow rounded-lg h-15 p-4 mt-1">
+                 <input type="file" accept="image/*" className="w-full h-full" />
+             </div>
+          </div>
+
+
 
           {/* Payment Options as Cards */}
           <div>
@@ -173,7 +167,7 @@ function Booking(token,onLogout) {
           {success && <div className="text-green-600">{success}</div>}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded mt-4 hover:bg-blue-700 transition-all duration-200 shadow-lg"
+            className="w-full bg-blue-600 text-white py-2 rounded mt-4 hover:bg-blue-700 transition-all duration-200 shadow-lg hover:text-black"
           >
             Book Test
           </button>
