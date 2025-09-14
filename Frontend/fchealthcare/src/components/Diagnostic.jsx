@@ -29,16 +29,16 @@ function Diagnostic({token,onLogout}){
     
 
     return(
-        <div >
+        <div className="bg-gray-100">
             <Header token={token} onLogout={onLogout}/>
-            <main className="bg-gradient-to-r from-blue-500 to-purple-500  ">
+            <main className="mt-30 ml-20 mr-20 shadow  ">
 
                 {center.map((s)=>(
-                <div key={s.id} className="">
-                    <div className="bg-white flex  rounded mb-1 w-full h-80 relative">
-                        <div className="flex  h-full ">
+                <div key={s.id} className=" rounded-lg mb-10">
+                    <div className="flex flex-col bg-white flex  rounded mb-1 gap-10 w-full h-80  ">
+                        <div className="flex  h-full gap-10">
 
-                        <div className="bg-white ">
+                        <div className="bg-white">
                             <img src="https://picsum.dev/image/15/view"
                              alt="preview" 
                              className="h-75 ml-5 mt-3 w-75 mr-5 p-2 rounded-full object-cover"
@@ -60,15 +60,17 @@ function Diagnostic({token,onLogout}){
 
     
                             </div>
-                            <div className="absolute right-0 bottom-0 mb-15 mr-4 p-2 ml-5 mt-10 justify-end ">
+                           <div className="flex ">
+                            <div className=" mb-15 mr-4 p-2 ml-5 mt-10  ">
                                <button className=" bg-green-400 transition   ease-in-out hover:-translate-y-1 rounded hover:bg-green-500 text-white w-50 h-11 px-4 py-2 " onClick={() =>navigate("/bookings") }>
                                 Book Now
                                 </button>
                             </div>
-                            <div className="absolute right-0 bottom-0 mr-4 p-2 ml-5 mt-2">
+                            <div className=" mr-4 p-2 ml-5 mt-10 mb-15">
                                <button className="bg-cyan-500 transition   ease-in-out hover:-translate-y-1  text-white hover:bg-cyan-400 rounded w-50 h-11 ">Contact Center</button>
                             </div>
-                        </div>
+                            </div>
+                      </div>
 
                     </div>
                     </div>   

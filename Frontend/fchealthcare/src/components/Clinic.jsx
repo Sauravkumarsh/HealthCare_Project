@@ -5,7 +5,7 @@ import React from "react";
 import Footer from "./Footer"
 import { Navigate, useNavigate } from "react-router";
 
-function Clinic({token,onLogout}){
+function Clinic({token,onLogout,role}){
     const [doctor,setDoctor]=useState([]);
     const navigate = useNavigate();
     const [doctorLength,setDoctorLength] = useState("");
@@ -31,14 +31,14 @@ function Clinic({token,onLogout}){
 
     return(
 
-        <div >
-            <Header token={token} onLogout={onLogout}/>
-            <main className="bg-gradient-to-r from-blue-500 to-purple-500  ">
+        <div className="bg-gray-100 " >
+            <Header token={token} onLogout={onLogout} role={role}/>
+            <main className=" mt-30 ml-20 mr-20 shadow ">
 
                 {doctor.map((s)=>(
-                <div key={s.id} className="">
-                    <div className="bg-white flex  rounded mb-1 w-full h-80 relative">
-                        <div className="flex  h-full ">
+                <div key={s.id} className=" rounded-lg mb-10 ">
+                    <div className="flex flex-col bg-white flex  rounded mb-1 gap-10 w-full h-80 ">
+                        <div className="flex  h-full  gap-10">
 
                         <div className="bg-white ">
                             <img src={s.imageUrl}
@@ -65,13 +65,16 @@ function Clinic({token,onLogout}){
                                     <span className="text-green-500">₹{s.fees}</span>
                                 </div> 
                             </div>
-                            <div className="absolute right-0 bottom-0 mb-15 mr-4 p-2 ml-5 mt-10 justify-end ">
+
+                            <div className="flex ">
+                            <div className=" mb-15 mr-4 p-2 ml-5 mt-10  ">
                                <button className=" bg-green-400 transition   ease-in-out hover:-translate-y-1 rounded hover:bg-green-500 text-white w-50 h-11 px-4 py-2 " onClick={() =>navigate("/bookings") }>
                                 Book Now
                                 </button>
                             </div>
-                            <div className="absolute right-0 bottom-0 mr-4 p-2 ml-5 mt-2">
+                            <div className=" mr-4 p-2 ml-5 mt-10 mb-15">
                                <button className="bg-cyan-500 transition   ease-in-out hover:-translate-y-1  text-white hover:bg-cyan-400 rounded w-50 h-11 ">Contact Center</button>
+                            </div>
                             </div>
                         </div>
 

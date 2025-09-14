@@ -16,7 +16,7 @@ function Home({token,onLogout,role}){
         <div className="flex flex-col">
             <Header token={token} onLogout={onLogout} role={role}/>
             {/* Home Section */}
-            <main className="ml-10 mr-10 mt-40">
+            <main className="ml-10 mr-10 mt-37">
 
                         <div  className="p-10 h-100 text-wrap w-full "
                          style={{
@@ -115,95 +115,85 @@ function Home({token,onLogout,role}){
                             </div>
                         </div>
                     </div>  
+                <div className=" p-4 mt-5 " >
+                    <h1 className="text-3xl font-serif font-semibold ml-14 ">Available Medicine</h1>
+                    <div className="flex gap-10 mt-5   justify-center items-center ">
 
-                   <div className="p-4 ">
-                    <h1 className="text-4xl font-bold ">Available Medicine</h1>
-                    <div className="flex gap-10 p-8">
-
-                      <div className="flex flex-col  h-40 w-40    rounded-lg ">
-                        <div className= "h-30 w-full  ">
+                      <div className="flex flex-col  h-70 w-50  rounded-lg ">
+                        <div className= "h-40 w-full  ">
                             <img 
                              src="https://medias.pourlascience.fr/api/v1/images/view/618bdaaad286c24de4078466/wide_1000-webp/image.jpg"  
                              className="h-full w-full"
                              alt="img" />
+                        </div>
+                        <div className="w-full h-20 text-center font-serif">
+                            Paracetamol (Panadol, Calpol, Alvedon) 
                         </div>
                         <div className="w-full h-10 ">
                             <button className="w-full h-full bg-orange-400  ">Buy 200</button>
                         </div>
                      </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full   ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full   ">
                             <img 
-                             src="https://www.janaxapharmaceuticals.com/wp-content/uploads/2024/12/Jancedol-40.jpg"  
+                             src="https://i0.wp.com/www.nelsonikenna.com/wp-content/uploads/2022/05/antidepressant_tablets_in_box_1200x800px.jpg"  
                              className="h-full w-full"
                              alt="img" />
+                        </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
                             <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full ">
                             <img 
                              src="https://www.fcremedies.com/wp-content/uploads/2022/01/MAPRED-40-INJECTION.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
                             <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full">
                             <img 
-                             src="https://assets.newatlas.com/dims4/default/e369cd3/2147483647/strip/true/crop/3840x2160+0+0/resize/2880x1620!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa3%2F90%2F3324f72b418ca03037e103ed0214%2Fdepositphotos-817198500-xl.jpg"  
+                            src="https://media.istockphoto.com/id/1181471590/photo/generic-paracetamol-tablets.webp?b=1&s=170667a&w=0&k=20&c=laSeV3sygwHAW0rcPLk0pgmzE1qhtb8gMiTRa7sadek="
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
                             <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg">
-                        <div className= "h-30 w-full ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg">
+                        <div className= "h-40 w-full ">
                             <img 
                              src="https://www.mehrith.com/wp-content/uploads/2023/08/REAL-SAP.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
-                        <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
-                            <img 
-                             src="https://assets.medpagetoday.net/media/images/96xxx/96431_m.jpg"  
-                             className="h-full w-full "
-                             alt="img" />
+                         <div className="w-full h-20 text-center">
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
                             <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
-                            <img 
-                             src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7.8OIvTeYwM/v1/1200x800.jpg"  
-                             className="h-full w-full"
-                             alt="img" />
-                        </div>
-                        <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
-                        </div>
-                    </div>
 
                     <div className="flex  justify-center items-center text-xl font-bold w-20">
                         <button>See All</button>
@@ -212,98 +202,90 @@ function Home({token,onLogout,role}){
 
 
 
+
+
                     </div>
-                   </div>
+                </div>
 
+                <div className=" p-4 mt-5 " >
+                    <h1 className="text-3xl font-serif font-semibold ml-14 ">Available Tests</h1>
+                    <div className="flex gap-10 mt-5   justify-center items-center ">
 
-                    <div className="p-4 ">
-                    <h1 className="text-4xl font-bold ">Available Tests</h1>
-                    <div className="flex gap-10 p-8">
-
-                      <div className="flex flex-col  h-40 w-40    rounded-lg ">
-                        <div className= "h-30 w-full  ">
+                      <div className="flex flex-col  h-70 w-50  rounded-lg ">
+                        <div className= "h-40 w-full  ">
                             <img 
-                             src="https://www.shutterstock.com/image-photo/radiologist-consults-patient-before-undergoing-260nw-2480666789.jpg"  
+                             src="https://da4e1j5r7gw87.cloudfront.net/wp-content/uploads/sites/4783/2021/11/Side-perspective-of-an-eye-doctor-using-a-microscope-and-slit-lamp-to-view-a-patients-eye.png"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                        <div className="w-full h-20 text-center font-serif">
+                            Paracetamol (Panadol, Calpol, Alvedon) 
+                        </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400  ">Book MRI</button>
+                            <button className="w-full h-full bg-orange-400  ">Buy 200</button>
                         </div>
                      </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full   ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full   ">
                             <img 
-                             src="https://media.istockphoto.com/id/1415662882/photo/male-patient-lying-on-bed-while-female-nurse-adjusting-modern-x-ray-machine-for-scanning-his.jpg?s=612x612&w=0&k=20&c=YPy1QHRU0nkpSmKj2gOQw6maPHp7L177qgKI7G1Fstw="  
+                             src="https://media.istockphoto.com/id/988475264/photo/sample-blood-collection-tube-with-hiv-test-label.jpg?s=612x612&w=0&k=20&c=GcfP8jy6CqmqGW8mTGzvy8kj6NfW4y8Gi1RP-slBASo="  
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book X-Ray</button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full ">
                             <img 
                              src="https://www.scripps.org/sparkle-assets/images/blood_test_samples_1200x750-59cd6b99366c6e716576ccd68351ed39.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Blood Test</button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg ">
+                        <div className= "h-40 w-full">
                             <img 
-                            src="https://media.istockphoto.com/id/988475264/photo/sample-blood-collection-tube-with-hiv-test-label.jpg?s=612x612&w=0&k=20&c=GcfP8jy6CqmqGW8mTGzvy8kj6NfW4y8Gi1RP-slBASo="
+                            src="https://www.scripps.org/sparkle-assets/images/blood_test_samples_1200x750-59cd6b99366c6e716576ccd68351ed39.jpg"
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book HIV Test</button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg">
-                        <div className= "h-30 w-full ">
+                    <div className="flex flex-col  h-70 w-50 rounded-lg">
+                        <div className= "h-40 w-full ">
                             <img 
-                             src="https://bookmerilab.com/blog/wp-content/uploads/2017/11/Ultrasound-NT-Scan.jpg"  
+                             src="https://www.shutterstock.com/image-photo/radiologist-consults-patient-before-undergoing-260nw-2480666789.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
+                         <div className="w-full h-20 text-center">
+                            Disease
+                        </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Ultrasound</button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
-                            <img 
-                             src="https://da4e1j5r7gw87.cloudfront.net/wp-content/uploads/sites/4783/2021/11/Side-perspective-of-an-eye-doctor-using-a-microscope-and-slit-lamp-to-view-a-patients-eye.png"  
-                             className="h-full w-full "
-                             alt="img" />
-                        </div>
-                        <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Eye Test</button>
-                        </div>
-                    </div>
-
-
-                    <div className="flex flex-col  h-40 w-40 rounded-lg ">
-                        <div className= "h-30 w-full ">
-                            <img 
-                             src="https://media.post.rvohealth.io/wp-content/uploads/2023/10/doctor-patient-endoscopy-medical-procedure-732x549-thumbnail-732x549.jpg"  
-                             className="h-full w-full"
-                             alt="img" />
-                        </div>
-                        <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Endoscopy</button>
-                        </div>
-                    </div>
 
                     <div className="flex  justify-center items-center text-xl font-bold w-20">
                         <button>See All</button>
@@ -312,8 +294,13 @@ function Home({token,onLogout,role}){
 
 
 
+
+
                     </div>
-                   </div>
+                </div>
+
+
+
 
 
                     <div className="flex flex-col gap-4 p-4 ">

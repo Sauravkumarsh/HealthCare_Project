@@ -20,10 +20,12 @@ import com.example.HealthCare.dto.BookingRequest;
 import com.example.HealthCare.entity.Booking;
 import com.example.HealthCare.entity.Center;
 import com.example.HealthCare.entity.Clinic;
+import com.example.HealthCare.entity.Medicine;
 import com.example.HealthCare.entity.User;
 import com.example.HealthCare.service.BookingService;
 import com.example.HealthCare.service.CenterService;
 import com.example.HealthCare.service.ClinicService;
+import com.example.HealthCare.service.MedicineService;
 import com.example.HealthCare.service.UserService;
 
 @RestController
@@ -40,6 +42,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private MedicineService medService;
 	
 	@Autowired
 	private ClinicService clinicService;  
@@ -88,6 +93,19 @@ public class UserController {
 	@PutMapping("/updateUser/{id}")
 	public ResponseEntity<User> updateUser( @RequestBody User user,@PathVariable Long id) {
 		return new ResponseEntity<>(userService.updateUser(id,user),HttpStatus.OK);
+	}
+	
+	@GetMapping("/getAllMedicine")
+	public ResponseEntity<List<Medicine>> getAllMedicine(){
+		try {
+			return new ResponseEntity<>(medService.getAll(),HttpStatus.OK);
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 	}
 	
 }

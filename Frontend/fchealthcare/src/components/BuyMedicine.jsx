@@ -1,100 +1,62 @@
+import Footer from "./Footer"
 import Header from "./Header"
-import rapidoBg from "../assets/rapidobg.png";
-import React, { useState, useEffect } from "react";
-import Footer from "./Footer";
-import { apiRequest } from "../api";
 
-
-
-
-function Booking({token,onLogout,role}) {
-    const [paymentMode, setPaymentMode] = useState("Cash");
-    const [error, setError] = useState("");
-    const [success,setSuccess] = useState("");
- 
-
-
-    useEffect(()=>{
-        fetchCenter();
-    },[token]);
-
-    const fetchCenter=async()=>{
-        try{
-            const res=await apiRequest("/diagnostic/user/getAllCenter","GET",null,token);
-            setCenter(res);
-            console.log(res);
-        }
-        catch(err){
-            console.log("error in  fetch messaage not");
-        }
-    };
-
-    
-    const handleBooking=async(e)=>{
-        e.preventDefault();  
-        try{
-
-            await apiRequest(`/diagnostic/user/booking/${id}`,"POST",content,token);
-        }catch(err){
-            console.log(err);
-        }
-    };
-
-
-
-    return (
+function BuyMedicine({token,onLogout,role}){
+    return(
         <div>
             <Header token={token} onLogout={onLogout} role={role}/>
-            <main className="mt-40 ml-25 mr-25">
-              <div className="flex w-full ">
-                <div className="flex flex-col rounded-lg shadow w-1/3 p-5 ">
-                <div className=" flex flex-col justify-center items-center">
+            <main className="mt-45 ">
+                <div className="md:flex justigy-center ml-25 mr-25 gap-20 shadow  rounded-lg ">
 
-                  <div>
-                  <img 
-                  src="https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg" 
-                  className="h-40 w-40 rounded-full "
-                  alt="" />
-                  </div>
-                  <div className="font-bold text-2xl mt-2">Dr. Ayush Raj</div>
+                    <div className="h-107 w-100  p-10 shadow  rounded-lg ">
+                      <img
+                       src="https://medias.pourlascience.fr/api/v1/images/view/618bdaaad286c24de4078466/wide_1000-webp/image.jpg"  
+                       className="h-full w-full"
+                       alt="img" />
+                    </div>
+                    <div className="md:flex flex-col gap-3 mt-5">
+                        <div className="text-2xl font-bold font-serif  ">Paracetamol (Panadol, Calpol, Alvedon)</div>
+                        <div >
+                            <div className="font-semibold text-lg ">Manufacturer/Company:</div>
+                            <div>LIFESCAN MEDICAL DEVICES INDIA PVT LTD</div>
+                        </div>
+                        <div>
+                            <div className="font-semibold text-lg ">Consumer Type</div>
+                            <div>NON CONSUMABLE</div>
+                        </div>
+                        <div>
+                            <div className="font-semibold text-lg ">Expiry Date</div>
+                            <div>Use Before 24 Months</div>
+                        </div>
+                        <div>
+                            <div className="font-semibold text-lg ">Return Policy</div>
+                            <div>Not Returnable</div>
+                        </div>
 
+                        <div>
+                         <div className="rounded-lg shadow  w-205 mb-5 ">
+                            <div className="font-semibold text-lg mt-3" >Price</div>
+                            <div className="flex gap-2 ">
+                                <div >
+                                    Available Onwards
+                                </div>
+                                <div className="text-green-500">₹500</div>
+                                <div className="flex  ml-60 gap-10 mb-5 mr-5">
+                                    <div>
+                                       <button className="bg-blue-500 w-35 h-12">Add to cart</button>
+                                    </div>
+                                    <div>
+                                        <button className="bg-orange-400 w-35 h-12">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    
                 </div>
-
-                <div className="flex gap-5 ml-8 mt-4">
-                  <div className="font-semibold text-xl">Specialist</div>
-                  <div className="ml-11 font-semibold text-xl">:</div>
-                  <div>NeuroSurgeon</div>
-                </div>
-
-                <div className="flex gap-5 ml-8 mt-2">
-                  <div className="font-semibold text-xl">Experience</div>
-                  <div className="ml-8 font-semibold text-xl">:</div>
-                  <div>10 Years</div>
-                </div>
-
-                <div className="flex gap-5 ml-8 mt-2">
-                  <div className="font-semibold text-xl">Consultant Fees :</div>
-                  <div className="text-green-500">₹ 700</div>
-                </div>
-
-
-                <div className="flex gap-5 ml-8 mt-2 w-full">
-                  <div className="font-semibold text-xl w-1/3  ">Address</div>
-                  <div className="ml-12 font-semibold text-xl">:</div>
-                  <div> 
-                    <p  className=" w-2/3">
-                      Rastriya Ganj , Phulwari Sharif ,Patna ,Pincode-801505
-                    </p>
-                  </div>
-                </div>
-
-
-                </div>
-
-                <div className="bg-green-50 w-2/3">Patient</div>
-              </div>
-
-              <div className="flex flex-col gap-5 ml-35 mr-35 mt-10 mb-10">
+                <div className="flex flex-col gap-5 ml-35 mr-35 mt-10 mb-10">
 
                     <div className="flex flex-col shadow  rounded-lg bg-gray-50 h-50 w-full ">
                         <div className="flex mt-4 ml-4 gap-3">
@@ -155,85 +117,84 @@ function Booking({token,onLogout,role}) {
                         </div>
 
                     </div>
-              </div>
+                </div>
 
-              
                 <div className=" p-4 mt-5 " >
-                    <h1 className="text-3xl font-serif font-semibold ml-14 ">Available Tests</h1>
+                    <h1 className="text-3xl font-serif font-semibold ml-14 ">See All Others</h1>
                     <div className="flex gap-10 mt-5   justify-center items-center ">
 
                       <div className="flex flex-col  h-70 w-50  rounded-lg ">
                         <div className= "h-40 w-full  ">
                             <img 
-                             src="https://da4e1j5r7gw87.cloudfront.net/wp-content/uploads/sites/4783/2021/11/Side-perspective-of-an-eye-doctor-using-a-microscope-and-slit-lamp-to-view-a-patients-eye.png"  
+                             src="https://medias.pourlascience.fr/api/v1/images/view/618bdaaad286c24de4078466/wide_1000-webp/image.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
                         <div className="w-full h-20 text-center font-serif">
-                            Eye Tests 
+                            Paracetamol (Panadol, Calpol, Alvedon) 
                         </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400  ">Book Now </button>
+                            <button className="w-full h-full bg-orange-400  ">Buy 200</button>
                         </div>
                      </div>
 
                     <div className="flex flex-col  h-70 w-50 rounded-lg ">
                         <div className= "h-40 w-full   ">
                             <img 
-                             src="https://media.istockphoto.com/id/988475264/photo/sample-blood-collection-tube-with-hiv-test-label.jpg?s=612x612&w=0&k=20&c=GcfP8jy6CqmqGW8mTGzvy8kj6NfW4y8Gi1RP-slBASo="  
+                             src="https://i0.wp.com/www.nelsonikenna.com/wp-content/uploads/2022/05/antidepressant_tablets_in_box_1200x800px.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
                          <div className="w-full h-20 text-center">
-                            HIV Tests
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Now </button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
                     <div className="flex flex-col  h-70 w-50 rounded-lg ">
                         <div className= "h-40 w-full ">
                             <img 
-                             src="https://www.scripps.org/sparkle-assets/images/blood_test_samples_1200x750-59cd6b99366c6e716576ccd68351ed39.jpg"  
+                             src="https://www.fcremedies.com/wp-content/uploads/2022/01/MAPRED-40-INJECTION.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
                          <div className="w-full h-20 text-center">
-                            Blood Tests
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Now </button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
                     <div className="flex flex-col  h-70 w-50 rounded-lg ">
                         <div className= "h-40 w-full">
                             <img 
-                            src="https://www.scripps.org/sparkle-assets/images/blood_test_samples_1200x750-59cd6b99366c6e716576ccd68351ed39.jpg"
+                            src="https://media.istockphoto.com/id/1181471590/photo/generic-paracetamol-tablets.webp?b=1&s=170667a&w=0&k=20&c=laSeV3sygwHAW0rcPLk0pgmzE1qhtb8gMiTRa7sadek="
                              className="h-full w-full"
                              alt="img" />
                         </div>
                          <div className="w-full h-20 text-center">
-                            Blood Tests
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Now </button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
                     <div className="flex flex-col  h-70 w-50 rounded-lg">
                         <div className= "h-40 w-full ">
                             <img 
-                             src="https://www.shutterstock.com/image-photo/radiologist-consults-patient-before-undergoing-260nw-2480666789.jpg"  
+                             src="https://www.mehrith.com/wp-content/uploads/2023/08/REAL-SAP.jpg"  
                              className="h-full w-full"
                              alt="img" />
                         </div>
                          <div className="w-full h-20 text-center">
-                            MRI Scan
+                            Disease
                         </div>
                         <div className="w-full h-10 ">
-                            <button className="w-full h-full bg-orange-400 ">Book Now </button>
+                            <button className="w-full h-full bg-orange-400 ">Buy 200</button>
                         </div>
                     </div>
 
@@ -242,18 +203,13 @@ function Booking({token,onLogout,role}) {
                         <button>See All</button>
                     </div>
 
+
                     </div>
                 </div>
-
-
-
-
             </main>
             <Footer/>
-
-
-
-    </div>
+        </div>
     )
 }
-export default Booking
+
+export default BuyMedicine
