@@ -14,7 +14,7 @@ function Medicine({token,onLogout,role}) {
             <Header token={token} onLogout={onLogout} role={role}/>
             <section className="mt-30 w-full fixed top-0 right-0 left-0">
                 <hr />
-                <div className=" flex bg-black h-8  justify-center items-center w-full text-white  gap-15">
+                <div className=" flex bg-purple-950 h-8  justify-center items-center w-full text-white  gap-15">
                     <div  ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-40 h-8 rounded-lg" >General Medicine</button></div>
                     <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-30 h-8 rounded-lg " >Women Care</button></div>
                     <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-28 h-8 rounded-lg" >Ayurveda</button></div>

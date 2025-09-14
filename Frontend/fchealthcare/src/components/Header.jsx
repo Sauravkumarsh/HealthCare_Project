@@ -81,7 +81,7 @@ function Header({token,onLogout,role}) {
             )}
 
 
-            <div className="flex flex-col h-12 bg-purple-100 justify-center items-center">
+            <div className="flex flex-col h-12 bg-black text-white justify-center items-center">
                   <div className="mx-auto container flex   ">
                     {role==="USER" ?(
                         <div className="mx-auto container flex gap-15 ml-10 justify-center">
