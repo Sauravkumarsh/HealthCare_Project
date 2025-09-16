@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router"
+import logo from "../assets/grocery-store.png";
 
 
 
@@ -9,15 +10,12 @@ function Header({token,onLogout,role}) {
     return (
         <div className="flex flex-col fixed top-0 right-0 left-0 ">
             <header className="bg-gradient-to-t  from-blue-200 to-blue-400 text-white ">
-            <div className="flex  w-full h-18 justify-between items-center gap-50">
+            <div className="flex  w-full h-18 justify-between items-center gap-30">
                 <div className=" w-350 ">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Practo_New_Logo.png" 
                   className="w-25 h-10 mt-1 ml-5" 
                   alt="Logo" />
                 </div>
-
-
-                
                         <div className="flex p-5  justify-center h-20   ">
                             <div className=" w-35 bg-white text-black h-full">
                                 <select name="Location" id="" className="border h-full w-full  ">
@@ -32,6 +30,12 @@ function Header({token,onLogout,role}) {
                             </div>
                         </div> 
 
+                        <div className="w-50 h-10 ">
+                            <button>
+                                <img src={logo} alt="" className="w-full h-full" />
+                            </button>
+                        </div>
+
 
                 {!token && (
                     <div className= "flex-1 text-right mr-6  ">
@@ -45,7 +49,7 @@ function Header({token,onLogout,role}) {
                     <button onClick={()=>setShowProfile(true)}>
                         <img 
                         src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" 
-                        className="w-44 h-10 rounded-full border object-cover mx-auto md:mx-0  md:mb-0" 
+                        className="w-60 h-11 rounded-full border object-cover mx-auto md:mx-0  md:mb-0" 
                         alt="profile" />
                     </button>
                  </div>
@@ -102,12 +106,15 @@ function Header({token,onLogout,role}) {
                     <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
                         </div>
                     ):(
-                     <div className="mx-auto container flex gap-15 ml-10 justify-center">
-                    <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg rounded-lg" onClick={()=>navigate("/home")}>Home</button></div>
-                    <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg " onClick={()=>navigate("/diagnostics")}>Book Tests</button></div>
-                    <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg" onClick={()=>navigate("/clinics")}>Find Doctors</button></div>
-                    <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg" onClick={()=>navigate("/medicines")}>Medicines</button></div>
-                    <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg" onClick={()=>navigate("/about")}>About Us</button></div>
+                        <div className="mx-auto container flex gap-15 ml-10 justify-center">
+                    <div  ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-18 h-8 rounded-lg" onClick={()=>navigate("/home")}>Home</button></div>
+                    <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-25 h-8 rounded-lg " onClick={()=>navigate("/diagnostics")}>Book Tests</button></div>
+                    <div ><button className="hover:text-black  hover:bg-blue-300 font-semibold text-lg w-28 h-8 rounded-lg" onClick={()=>navigate("/clinics")}>Find Doctors</button></div>
+                    <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg w-34 h-8 rounded-lg" onClick={()=>navigate("/medicines")}>Medicines</button></div>
+                    <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg w-28 h-8 rounded-lg" onClick={()=>navigate("/about")}>Read Article</button></div>
+                   <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg w-32 h-8 rounded-lg" onClick={()=>navigate("/about")}>Security&Help</button></div>
+                    <div><button className="hover:text-black hover:bg-blue-300 font-semibold text-lg w-24 h-8 rounded-lg" onClick={()=>navigate("/about")}>About Us</button></div>
+                    
                         </div>
 
                     )}
