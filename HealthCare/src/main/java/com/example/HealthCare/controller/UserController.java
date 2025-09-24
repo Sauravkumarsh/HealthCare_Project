@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.HealthCare.dto.BookingDetails;
 import com.example.HealthCare.dto.BookingRequest;
+import com.example.HealthCare.entity.BookDoctor;
 import com.example.HealthCare.entity.Booking;
 import com.example.HealthCare.entity.Center;
 import com.example.HealthCare.entity.Clinic;
 import com.example.HealthCare.entity.Medicine;
 import com.example.HealthCare.entity.User;
+import com.example.HealthCare.service.BookDoctorService;
 import com.example.HealthCare.service.BookingService;
 import com.example.HealthCare.service.CenterService;
 import com.example.HealthCare.service.ClinicService;
@@ -33,6 +35,8 @@ import com.example.HealthCare.service.UserService;
 @CrossOrigin(origins = {"http://localhost:5173"})
 public class UserController {
 
+	@Autowired
+	private BookDoctorService service;
 	
 	@Autowired
 	private CenterService centerService;
@@ -108,4 +112,8 @@ public class UserController {
 		return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 	}
 	
+	@PostMapping("/bookDoctor")
+	public ResponseEntity<BookDoctor> addBooking(@RequestBody BookDoctor bookDoctor){
+		return new ResponseEntity<>(service.addBooking(bookDoctor),HttpStatus.OK);
+	}
 }

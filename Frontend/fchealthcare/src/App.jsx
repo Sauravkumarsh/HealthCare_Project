@@ -12,6 +12,7 @@ import AddDoctor from "./components/AddDoctor";
 import Profile from "./components/Profile";
 import Medicine from "./components/Medicine";
 import BuyMedicine from "./components/BuyMedicine";
+import BookingTest from "./components/BookingTest";
 
 function App() {
 
@@ -50,6 +51,8 @@ function App() {
       <Route path="/profile" element={token ? <Profile token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/medicines" element={token ? <Medicine token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/buy" element={token ? <BuyMedicine token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+      <Route path="/bookingTests" element={token ? <BookingTest token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+
 
 
 

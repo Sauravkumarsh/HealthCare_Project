@@ -56,7 +56,9 @@ function Diagnostic({token,onLogout}){
                         <h2 className="text-green-400 text-center">Only 500</h2>
                       </div>
                       <div className="w-full ">
-                        <button className="h-12 w-full rounded bg-blue-400 text-lg text-white ">
+                        <button 
+                          className="h-12 w-full rounded bg-blue-400 text-lg text-white "
+                          onClick={() =>navigate("/bookingTests")}>
                             Book Now 
                         </button>
                       </div>

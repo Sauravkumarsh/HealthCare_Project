@@ -2,40 +2,26 @@ import Header from "./Header"
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import { apiRequest } from "../api";
-import { useNavigate } from "react-router";
 
 
 
 
-function Booking({token,onLogout,role}) {
+
+
+function BookingTest({token,onLogout,role}) {
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [error, setError] = useState("");
     const [success,setSuccess] = useState("");
-    const [name, setName] = useState("");
-    const [dob,setDob] = useState("");  
-    const [age, setAge] = useState("");
-    const [address,setAddress] = useState("");
-    const [contactNo,setContactNo] = useState("");
-    const [gender,setGender] = useState("");
-    const [userId,setUserId] = useState(2);
-
-    const navigate=useNavigate();
-
-
-
-    
-    const handleSubmit=async(e)=>{
-        e.preventDefault();
-        try{
-            await apiRequest("/diagnostic/user/bookDoctor","POST",{name,dob,age,address,contactNo,gender,userId},token);
-            navigate("/home");
-        }
-        catch(err){
-            setError("Signup Failed");
-        }
-
-    }
-
+    const [show,setShow]=useState(true);
+  const [name,setName] =useState("");
+      const [dob,setDob] = useState("");  
+      const [age, setAge] = useState("");
+      const [address,setAddress] = useState("");
+      const [contactNo,setContactNo] = useState("");
+      const [gender,setGender] = useState("");
+      const [userId,setUserId] = useState(2);
+      const [slot,setSlot]=useState("");
+      const[centerName,setCenterName]=useState("");
 
 
     useEffect(()=>{
@@ -53,39 +39,50 @@ function Booking({token,onLogout,role}) {
         }
     };
 
+    
+    const handleSubmit=async(e)=>{
+          e.preventDefault();
+          try{
+              await apiRequest(`/diagnostic/user/booking/${id}`,"POST",{name,dob,age,address,contactNo,gender,userId,slot,centerName},token);
+              navigate("/home");
+          }
+          catch(err){
+              setError("Signup Failed");
+          }
+  
+      }
+
+
     return (
         <div>
             <Header token={token} onLogout={onLogout} role={role}/>
             <main className="mt-40 ml-25 mr-25">
               <div className="flex w-full ">
-                <div className="flex flex-col rounded-lg shadow w-1/3 p-5 ">
+
+              <div className="flex flex-col rounded-lg shadow w-1/3 p-5 ">
+                
                 <div className=" flex flex-col justify-center items-center">
 
                   <div>
                   <img 
-                  src="https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg" 
-                  className="h-40 w-40 rounded-full "
+                  src="https://max-website20-images.s3.ap-south-1.amazonaws.com/Blood_Sugar_Test_2fa9b72bef.png" 
+                  className="h-60 w-60 rounded-full "
                   alt="" />
                   </div>
-                  <div className="font-bold text-2xl mt-2">Dr. Ayush Raj</div>
+                  <div className="font-bold text-2xl mt-2">T3 T4 TSH</div>
 
                 </div>
 
                 <div className="flex gap-5 ml-8 mt-4">
-                  <div className="font-semibold text-xl">Specialist</div>
-                  <div className="ml-11 font-semibold text-xl">:</div>
-                  <div>NeuroSurgeon</div>
+                  <div className="font-semibold text-xl">Certified Labs</div>
                 </div>
 
                 <div className="flex gap-5 ml-8 mt-2">
-                  <div className="font-semibold text-xl">Experience</div>
-                  <div className="ml-8 font-semibold text-xl">:</div>
-                  <div>10 Years</div>
+                  <div className="font-semibold text-xl">Free Home Sample Pickup</div>
                 </div>
 
                 <div className="flex gap-5 ml-8 mt-2">
-                  <div className="font-semibold text-xl">Consultant Fees :</div>
-                  <div className="text-green-500">₹ 700</div>
+                  <div className="text-green-500 font-semibold text-lg">₹ 700</div>
                 </div>
 
 
@@ -98,23 +95,36 @@ function Booking({token,onLogout,role}) {
                     </p>
                   </div>
                 </div>
-                </div>
+
+              </div>
 
 
                 <div className=" flex flex-col  w-2/3 ml-12 p-5 rounded-lg shadow">
-                <label className="text-2xl font-semibold mb-5 ml-65">Patient's Details</label>
-                 <form onSubmit={handleSubmit} className="ml-7">
-                    <div className="flex gap-7 mb-5 ">
+
+                <div className="flex items-center justify-center gap-15 mb-5 ">
+                  <div className="h-12 ">
+                    <button onClick= {()=> setShow(true)} className={`h-full w-40 ${show===true ? "bg-blue-500":"bg-gray-200"} rounded-lg shadow`}>Patient's Details</button>
+                  </div>
+                  <div className="h-12"> 
+                    <button  onClick= {()=> setShow(false)} className={`h-full w-40 ${show===true ? "bg-gray-200":"bg-blue-500"} rounded-lg shadow`}>Additional Details</button>
+                  </div>
+                </div>
+
+                {show===true &&(
+                 <form action="" className="ml-7 mt-10">
+                   
+                   <div className="flex flex-col justify-center items-center">
+                      <div className="flex gap-7 mb-5 ">
                       <div>
-                        <label className="text-xl font-semibold">Patient's Name:
+                        <label className="text-xl font-semibold"> Patient's Name:
                         </label></div>
                       <div className="w-120">
                         <input 
                         type="text"
                         className="border w-full"
-                        value={name}
+                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        required />
+                        required  />
                       </div>
                     </div>
 
@@ -125,10 +135,10 @@ function Booking({token,onLogout,role}) {
                       <div className="w-120 text-center">
                         <input 
                         type="date"
-                        className="border w-full items-center" 
-                        value={dob}
+                        className="border w-full items-center"
+                         value={dob}
                         onChange={(e) => setDob(e.target.value)}
-                       required/>
+                        required  />
                       </div>
                     </div>
 
@@ -140,10 +150,10 @@ function Booking({token,onLogout,role}) {
                       <div className="w-120">
                         <input 
                         type="text"
-                        className="border w-full" 
-                        value={age}
-                       onChange={(e) => setAge(e.target.value)}
-                       required/>
+                        className="border w-full"
+                         value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                        required  />
                       </div>
                     </div>
 
@@ -160,22 +170,79 @@ function Booking({token,onLogout,role}) {
                       </div>
                     </div>
 
-                    <div className="flex gap-5 mb-5">
+
+                    <div className="flex gap-10 justify-center mt-45 font-semibold items-center">
+                        <div>
+                            <button className="bg-blue-500 rounded-lg h-12 w-35">Add to cart</button>
+                        </div>
+                        <div>
+                            <button onClick={()=>setShow(false)} className="bg-green-500 rounded-lg h-12 w-35">Next</button>
+                        </div>
+                    </div>
+                   </div>
+
+                 </form>
+               )}
+
+              {show===false &&(
+                 <form onSubmit={handleSubmit} className="ml-7 mt-10 ">
+                   
+                   <div className="flex flex-col justify-center items-center">
+                      <div className="flex gap-13 mb-5">
+                      <div>
+                        <label className="text-xl font-semibold">Center Name:
+                        </label></div>
+                      <div className="w-120">
+                        <input 
+                        type="text"
+                        className="border w-full"
+                          value={centerName}
+                        onChange={(e) => setCenterName(e.target.value)}
+                        required  />
+                      </div>
+                    </div>
+
+
+                     <div className="flex gap-13 mb-5">
+                      <div>
+                        <label className="text-xl font-semibold">Select Service:
+                        </label></div>
+                      <div className=" flex w-120 gap-5">
+                         <input type="radio" name="service" value={"Home Service"} onChange={(e) => setGender(e.target.value)} required /> Home Service
+                         <input type="radio" name="service" value={"In lab"} onChange={(e) => setGender(e.target.value)} required/> In Lab
+                      </div>
+                    </div>
+
+                    <div className="flex gap-7 mb-5">
                       <div>
                         <label className="text-xl font-semibold">Mobile Number:
                         </label></div>
                       <div className="w-120">
                         <input 
                         type="number"
-                        className="border w-full" 
+                        className="border w-full"
                         value={contactNo}
                         onChange={(e) => setContactNo(e.target.value)}
-                        required/>
+                        required  />
+                      </div>
+                    </div>
+
+                     <div className="flex gap-5 mb-5">
+                      <div>
+                        <label className="text-xl font-semibold">Date & Time Slot:
+                        </label></div>
+                      <div className="w-120">
+                        <input 
+                        type="datetime-local"
+                        className="border w-full"
+                        value={slot}
+                        onChange={(e) => setSlot(e.target.value)}
+                        required  />
                       </div>
                     </div>
 
 
-                    <div className="flex gap-23">
+                    <div className="flex gap-25">
                       <div>
                         <label className="text-xl font-semibold">Address:
                         </label></div>
@@ -183,23 +250,29 @@ function Booking({token,onLogout,role}) {
                         <input 
                         type="text"
                         className="border w-full" 
-                        value={address}
+                          value={address}
                         onChange={(e) => setAddress(e.target.value)}
-                        required/>
+                        required />
                       </div>
                     </div>
 
-                    <div className="flex gap-10 justify-center mt-10 font-semibold items-center">
+                    <div className="flex gap-10 justify-center mt-35 font-semibold items-center">
                         <div>
                             <button className="bg-blue-500 rounded-lg h-12 w-35">Add to cart</button>
                         </div>
                         <div>
-                            <button type="submit" className="bg-green-500 rounded-lg h-12 w-35">Consult Now</button>
+                            <button type="submit" className="bg-green-500 rounded-lg h-12 w-35">Book Now</button>
                         </div>
                     </div>
-
-
+                   </div>
+                  
                  </form>
+                )}
+
+
+
+
+                
                 </div>
               </div>
 
@@ -456,4 +529,4 @@ function Booking({token,onLogout,role}) {
     </div>
     )
 }
-export default Booking
+export default BookingTest
