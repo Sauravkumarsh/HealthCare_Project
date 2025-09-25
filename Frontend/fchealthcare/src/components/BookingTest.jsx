@@ -2,6 +2,7 @@ import Header from "./Header"
 import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import { apiRequest } from "../api";
+import { useNavigate } from "react-router";
 
 
 
@@ -22,6 +23,10 @@ function BookingTest({token,onLogout,role}) {
       const [userId,setUserId] = useState(2);
       const [slot,setSlot]=useState("");
       const[centerName,setCenterName]=useState("");
+      const [service,setService] = useState(2);
+      const navigate = useNavigate();
+      
+      
 
 
     useEffect(()=>{
@@ -43,7 +48,7 @@ function BookingTest({token,onLogout,role}) {
     const handleSubmit=async(e)=>{
           e.preventDefault();
           try{
-              await apiRequest(`/diagnostic/user/booking/${id}`,"POST",{name,dob,age,address,contactNo,gender,userId,slot,centerName},token);
+              await apiRequest(`/diagnostic/user/booking/${userId}`,"POST",{name,dob,age,address,contactNo,gender,slot,centerName,service,userId},token);
               navigate("/home");
           }
           catch(err){
@@ -208,8 +213,8 @@ function BookingTest({token,onLogout,role}) {
                         <label className="text-xl font-semibold">Select Service:
                         </label></div>
                       <div className=" flex w-120 gap-5">
-                         <input type="radio" name="service" value={"Home Service"} onChange={(e) => setGender(e.target.value)} required /> Home Service
-                         <input type="radio" name="service" value={"In lab"} onChange={(e) => setGender(e.target.value)} required/> In Lab
+                         <input type="radio" name="service" value={"Home Service"} onChange={(e) => setService(e.target.value)} required /> Home Service
+                         <input type="radio" name="service" value={"In lab"} onChange={(e) => setService(e.target.value)} required/> In Lab
                       </div>
                     </div>
 

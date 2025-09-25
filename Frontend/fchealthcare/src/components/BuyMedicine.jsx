@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router"
 import Footer from "./Footer"
 import Header from "./Header"
 
+
+
+
 function BuyMedicine({token,onLogout,role}){
+
+    const navigate = useNavigate();
+
+
     return(
         <div>
             <Header token={token} onLogout={onLogout} role={role}/>
@@ -43,7 +51,7 @@ function BuyMedicine({token,onLogout,role}){
                                 <div className="text-green-500">₹500</div>
                                 <div className="flex  ml-60 gap-10 mb-5 mr-5">
                                     <div>
-                                       <button className="bg-blue-500 w-35 h-12">Add to cart</button>
+                                       <button className="bg-blue-500 w-35 h-12" onClick={()=> navigate("/cart")}>Add to cart</button>
                                     </div>
                                     <div>
                                         <button className="bg-orange-400 w-35 h-12">Buy</button>

@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import Medicine from "./components/Medicine";
 import BuyMedicine from "./components/BuyMedicine";
 import BookingTest from "./components/BookingTest";
+import Cart from "./components/Cart";
 
 function App() {
 
@@ -52,6 +53,8 @@ function App() {
       <Route path="/medicines" element={token ? <Medicine token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/buy" element={token ? <BuyMedicine token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
       <Route path="/bookingTests" element={token ? <BookingTest token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+       <Route path="/cart" element={token ? <Cart token={token} onLogout={handleLogout} role={role}/> : <Navigate to="/" />}/>
+
 
 
 

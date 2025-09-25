@@ -30,7 +30,7 @@ function Login({setToken,setRole}) {
     return(
         <div>
            <Header /> 
-          <div  className="flex bg-blue-50 w-full h-185 items-center  justify-center">
+          <div  className="flex bg-blue-50 w-full h-185  mt-15 items-center  justify-center">
             <div className=" flex w-200 h-150 items-center bg-gray-100 ">
                 <div className=" w-1/2 h-full">
                 <img 
